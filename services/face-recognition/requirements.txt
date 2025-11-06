@@ -1,0 +1,38 @@
+# Face Recognition Service Dependencies
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Computer Vision & Deep Learning
+opencv-python==4.8.1.78
+torch==2.1.1
+torchvision==0.16.1
+ultralytics==8.0.228  # YOLO11n
+insightface==0.7.3    # ArcFace
+onnxruntime-gpu==1.16.3
+
+# Video Processing
+av==11.0.0
+numpy==1.24.3
+pillow==10.1.0
+
+# Redis
+redis==5.0.1
+redis-om==0.2.1
+
+# Database
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+pgvector==0.2.4
+
+# Monitoring
+prometheus-client==0.19.0
+structlog==23.2.0
+
+# Utilities
+python-dotenv==1.0.0
+aiofiles==23.2.1
+python-multipart==0.0.6

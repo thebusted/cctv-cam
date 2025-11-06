@@ -1,0 +1,41 @@
+# Prometheus Configuration for CCTV System
+
+global:
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  evaluation_interval: 30s
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
+
+# Load rules once and periodically evaluate them
+rule_files:
+  # - "alerts/*.yml"
+
+# Scrape configurations
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Face Recognition Service
+  - job_name: 'face-recognition'
+    static_configs:
+      - targets: ['face-recognition:9003']
+        labels:
+          service: 'face-recognition'
+          camera_id: 'camera_01'
+
+  # Redis Exporter (optional - requires redis_exporter)
+  # - job_name: 'redis'
+  #   static_configs:
+  #     - targets: ['redis-exporter:9121']
+
+  # PostgreSQL/TimescaleDB Exporter (optional - requires postgres_exporter)
+  # - job_name: 'timescaledb'
+  #   static_configs:
+  #     - targets: ['postgres-exporter:9187']
